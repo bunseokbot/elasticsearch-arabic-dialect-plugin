@@ -17,6 +17,10 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       upload_url: ${{ steps.create_release.outputs.upload_url }}
+    
+    permissions:
+      contents: write
+      
     steps:
       - name: Get version from tag
         id: tag_name
