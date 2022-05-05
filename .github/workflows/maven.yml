@@ -48,7 +48,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.SECRET_TOKEN }}
         with:
           tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
           body: |
             Automated release by Github Action CI
           draft: false
@@ -91,6 +91,6 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
         upload_url: ${{ needs.create_release.outputs.upload_url }}
-        asset_path: ./target/releases/
+        asset_path: ./${{ env.PROJECT_NAME }}-${{ steps.tag_name.outputs.current_version }}.zip
         asset_name: ${{ env.PROJECT_NAME }}-${{ steps.tag_name.outputs.current_version }}.zip
         asset_content_type: application/zip
