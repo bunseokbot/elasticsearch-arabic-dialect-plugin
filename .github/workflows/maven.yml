@@ -43,12 +43,15 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.SECRET_TOKEN }}
         with:
+          owner: owner
+          repo: repo
           tag_name: ${{ env.RELEASE_VERSION }}
           release_name: ${{ env.RELEASE_VERSION }}
           body: |
             Automated release by Github Action CI
           draft: false
           prerelease: false
+          commitish: main
 
   build:
     runs-on: ubuntu-latest
