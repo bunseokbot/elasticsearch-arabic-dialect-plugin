@@ -59,7 +59,7 @@ jobs:
     name: Build plugin
     needs: create_release
     permissions:
-      contents: read
+      contents: write
       packages: write
 
     steps:
